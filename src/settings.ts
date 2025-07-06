@@ -1,5 +1,5 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
-import SlashCompletePlugin from "./main";
+import SlashCompletePlugin from "../main";
 
 export class SlashCompleteSettingsTab extends PluginSettingTab {
 	plugin: SlashCompletePlugin;
