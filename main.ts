@@ -18,6 +18,26 @@ const DEFAULT_SETTINGS: SlashCompleteSettings = {
 			shortKey: null,
 			value: `>[!INFO]\n>`,
 		},
+		{
+			command: `tip`,
+			shortKey: null,
+			value: `>[!TIP]\n>`,
+		},
+		{
+			command: `important`,
+			shortKey: null,
+			value: `>[!IMPORTANT]\n>`,
+		},
+		{
+			command: `warning`,
+			shortKey: null,
+			value: `>[!WARNING]\n>`,
+		},
+		{
+			command: `caution`,
+			shortKey: null,
+			value: `>[!CAUTION]\n>`,
+		},
 	],
 };
 
