@@ -33,13 +33,13 @@ export class AutoComplete extends EditorSuggest<Command> {
 			this.commandStartIndex === NO_COMMAND &&
 			line[cursor.ch - 1] !== this.slashComplete.settings.hotKey
 		) {
-            // Not in command and most recent char is not the hotkey, skip
+			// Not in command and most recent char is not the hotkey, skip
 			return null;
 		}
 
 		// Command char hit
 		if (this.commandStartIndex === NO_COMMAND) {
-            // Not in command yet, so we should mark the start here
+			// Not in command yet, so we should mark the start here
 			this.commandStartIndex = cursor.ch - 1;
 		}
 		const currentCommand = line.slice(this.commandStartIndex, cursor.ch);
@@ -62,11 +62,14 @@ export class AutoComplete extends EditorSuggest<Command> {
 	getSuggestions(
 		context: EditorSuggestContext
 	): Command[] | Promise<Command[]> {
-		return this.slashComplete.settings.commands.filter(
-			(c) =>
-				c.command.includes(context.query) ||
-				(c.alias !== null && c.alias.includes(context.query))
-		);
+		return Object.entries(this.slashComplete.settings.commands)
+			.filter(
+				(entry) =>
+					entry[1].command.includes(context.query) ||
+					(entry[1].alias !== null &&
+						entry[1].alias.includes(context.query))
+			)
+			.map((entry) => entry[1]);
 	}
 	renderSuggestion(value: Command, el: HTMLElement): void {
 		const div = document.createElement(`div`);

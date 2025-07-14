@@ -2,136 +2,144 @@ import { SlashCompleteSettings } from "./models/slash_complete_settings";
 
 export const DEFAULT_SETTINGS: SlashCompleteSettings = {
 	hotKey: `/`,
-	commands: [
-		{
-			command: `h1`,
+	commands: {
+		h1: {
+			command: "h1",
 			alias: null,
-			value: `# `,
+			value: "# ",
 		},
-		{
-			command: `h2`,
+		h2: {
+			command: "h2",
 			alias: null,
-			value: `## `,
+			value: "## ",
 		},
-		{
-			command: `h3`,
+		h3: {
+			command: "h3",
 			alias: null,
-			value: `### `,
+			value: "### ",
 		},
-		{
-			command: `h4`,
+		h4: {
+			command: "h4",
 			alias: null,
-			value: `#### `,
+			value: "#### ",
 		},
-		{
-			command: `h5`,
+		h5: {
+			command: "h5",
 			alias: null,
-			value: `##### `,
+			value: "##### ",
 		},
-		{
-			command: `h6`,
+		h6: {
+			command: "h6",
 			alias: null,
-			value: `###### `,
+			value: "###### ",
 		},
-		{
-			command: `bold`,
+		bold: {
+			command: "bold",
 			alias: null,
-			value: `____`,
+			value: "____",
 		},
-		{
-			command: `italics`,
+		italics: {
+			command: "italics",
 			alias: null,
-			value: `__`,
+			value: "__",
 		},
-		{
-			command: `strike-through`,
+		"strike-through": {
+			command: "strike-through",
 			alias: null,
-			value: `~~~~`,
+			value: "~~~~",
 		},
-		{
-			command: `subscript`,
+		subscript: {
+			command: "subscript",
 			alias: null,
-			value: `<sub></sub>`,
+			value: "<sub></sub>",
 		},
-		{
-			command: `super`,
+		super: {
+			command: "super",
 			alias: null,
-			value: `____`,
+			value: "____",
 		},
-		{
-			command: `underline`,
+		underline: {
+			command: "underline",
 			alias: null,
-			value: `<ins></ins>`,
+			value: "<ins></ins>",
 		},
-		{
-			command: `highlight`,
+		highlight: {
+			command: "highlight",
 			alias: null,
-			value: `====`,
+			value: "====",
 		},
-		{
-			command: `quote`,
+		quote: {
+			command: "quote",
 			alias: null,
-			value: `>`,
+			value: ">",
 		},
-		{
-			command: `link`,
+		link: {
+			command: "link",
 			alias: null,
-			value: `[]()`,
+			value: "[]()",
 		},
-		{
-			command: `image`,
-			alias: `img`,
-			value: `![]()`,
+		image: {
+			command: "image",
+			alias: "img",
+			value: "![]()",
 		},
-		{
-			command: `newline`,
-			alias: `br`,
-			value: `<br />`,
+		newline: {
+			command: "newline",
+			alias: "br",
+			value: "<br />",
 		},
-		{
-			command: `bullet-list`,
-			alias: `li`,
-			value: `- `,
+		"bullet-list": {
+			command: "bullet-list",
+			alias: "li",
+			value: "- ",
 		},
-		{
-			command: `number-list`,
-			alias: `ol`,
-			value: `1. `,
+		"number-list": {
+			command: "number-list",
+			alias: "ol",
+			value: "1. ",
 		},
-		{
-			command: `checkbox`,
-			alias: `cb`,
-			value: `- [ ] `,
+		checkbox: {
+			command: "checkbox",
+			alias: "cb",
+			value: "- [ ] ",
 		},
-		{
-			command: `code`,
+		code: {
+			command: "code",
 			alias: null,
-			value: `\`\`\``,
+			value: "```",
 		},
-		{
-			command: `info`,
+		info: {
+			command: "info",
 			alias: null,
-			value: `>[!INFO]\n>`,
+			value: ">[!INFO]\n>",
 		},
-		{
-			command: `tip`,
+		tip: {
+			command: "tip",
 			alias: null,
-			value: `>[!TIP]\n>`,
+			value: ">[!TIP]\n>",
 		},
-		{
-			command: `important`,
+		important: {
+			command: "important",
 			alias: null,
-			value: `>[!IMPORTANT]\n>`,
+			value: ">[!IMPORTANT]\n>",
 		},
-		{
-			command: `warning`,
+		warning: {
+			command: "warning",
 			alias: null,
-			value: `>[!WARNING]\n>`,
+			value: ">[!WARNING]\n>",
 		},
-		{
-			command: `caution`,
+		caution: {
+			command: "caution",
 			alias: null,
-			value: `>[!CAUTION]\n>`,
+			value: ">[!CAUTION]\n>",
 		},
-	],
+		table: {
+			command: "table",
+			alias: "tb",
+			value: `| | | |
+|---|---|---|
+| | | |
+| | | |`,
+		},
+	},
 };

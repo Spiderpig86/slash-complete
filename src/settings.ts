@@ -47,8 +47,10 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 					})
 			);
 
+		// TODO reset settings button
+
 		containerEl.createEl("h3", { text: `Markdown Constructs` });
-		for (let c of this.plugin.settings.commands) {
+		for (let [_, c] of Object.entries(this.plugin.settings.commands)) {
 			new Setting(containerEl)
 				.setName(c.command)
 				.setDesc(`Set the autocomplete settings for ${c.command}.`)

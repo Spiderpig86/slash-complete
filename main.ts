@@ -23,11 +23,24 @@ export default class SlashCompletePlugin extends Plugin {
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
-			await this.loadData()
+			await this.mergeSettings()
 		);
 	}
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+	}
+
+	async mergeSettings(): Promise<SlashCompleteSettings> {
+		const stored = await this.loadData();
+
+		// Merge commands into stored settings when new ones are added
+		const commands = Object.assign(
+			{},
+			DEFAULT_SETTINGS.commands,
+			stored.commands
+		);
+		stored.commands = commands;
+		return stored;
 	}
 }
