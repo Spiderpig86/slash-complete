@@ -1,5 +1,6 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
 import SlashCompletePlugin from "../main";
+import { DEFAULT_SETTINGS } from "./constants";
 
 export class SlashCompleteSettingsTab extends PluginSettingTab {
 	plugin: SlashCompletePlugin;
@@ -45,5 +46,30 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					})
 			);
+
+		containerEl.createEl("h3", { text: `Markdown Constructs` });
+		for (let c of this.plugin.settings.commands) {
+			new Setting(containerEl)
+				.setName(c.command)
+				.setDesc(`Set the autocomplete settings for ${c.command}.`)
+				.addText((text) =>
+					text
+						.setPlaceholder("Enter (optional) alias")
+						.setValue(c.alias ?? ``)
+						.onChange(async (value) => {
+							c.alias = value;
+							await this.plugin.saveSettings();
+						})
+				)
+				.addTextArea((text) =>
+					text
+						.setPlaceholder("Enter autocomplete value")
+						.setValue(c.value)
+						.onChange(async (value) => {
+							c.value = value;
+							await this.plugin.saveSettings();
+						})
+				);
+		}
 	}
 }

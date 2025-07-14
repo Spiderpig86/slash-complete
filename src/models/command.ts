@@ -1,6 +1,6 @@
 
 export interface Command {
     command: string;
-    shortKey: string | null;
+    alias: string | null;
     value: string;
 }

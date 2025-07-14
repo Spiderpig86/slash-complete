@@ -7,7 +7,7 @@ import {
 	EditorSuggestTriggerInfo,
 	TFile,
 } from "obsidian";
-import { Command } from "./command";
+import { Command } from "./models/command";
 import SlashCompletePlugin from "../main";
 
 const NO_COMMAND = -1;
@@ -65,7 +65,7 @@ export class AutoComplete extends EditorSuggest<Command> {
 		return this.slashComplete.settings.commands.filter(
 			(c) =>
 				c.command.includes(context.query) ||
-				(c.shortKey !== null && c.shortKey.includes(context.query))
+				(c.alias !== null && c.alias.includes(context.query))
 		);
 	}
 	renderSuggestion(value: Command, el: HTMLElement): void {
