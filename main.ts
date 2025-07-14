@@ -14,6 +14,111 @@ const DEFAULT_SETTINGS: SlashCompleteSettings = {
 	hotKey: `/`,
 	commands: [
 		{
+			command: `h1`,
+			shortKey: null,
+			value: `# `,
+		},
+		{
+			command: `h2`,
+			shortKey: null,
+			value: `## `,
+		},
+		{
+			command: `h3`,
+			shortKey: null,
+			value: `### `,
+		},
+		{
+			command: `h4`,
+			shortKey: null,
+			value: `#### `,
+		},
+		{
+			command: `h5`,
+			shortKey: null,
+			value: `##### `,
+		},
+		{
+			command: `h6`,
+			shortKey: null,
+			value: `###### `,
+		},
+		{
+			command: `bold`,
+			shortKey: null,
+			value: `____`,
+		},
+		{
+			command: `italics`,
+			shortKey: null,
+			value: `__`,
+		},
+		{
+			command: `strike-through`,
+			shortKey: null,
+			value: `~~~~`,
+		},
+		{
+			command: `subscript`,
+			shortKey: null,
+			value: `<sub></sub>`,
+		},
+		{
+			command: `super`,
+			shortKey: null,
+			value: `____`,
+		},
+		{
+			command: `underline`,
+			shortKey: null,
+			value: `<ins></ins>`,
+		},
+		{
+			command: `highlight`,
+			shortKey: null,
+			value: `====`,
+		},
+		{
+			command: `quote`,
+			shortKey: null,
+			value: `>`,
+		},
+		{
+			command: `link`,
+			shortKey: null,
+			value: `[]()`,
+		},
+		{
+			command: `image`,
+			shortKey: `img`,
+			value: `![]()`,
+		},
+		{
+			command: `newline`,
+			shortKey: `br`,
+			value: `<br />`,
+		},
+		{
+			command: `bullet-list`,
+			shortKey: `li`,
+			value: `- `,
+		},
+		{
+			command: `number-list`,
+			shortKey: `ol`,
+			value: `1. `,
+		},
+		{
+			command: `checkbox`,
+			shortKey: `cb`,
+			value: `- [ ] `,
+		},
+		{
+			command: `code`,
+			shortKey: null,
+			value: `\`\`\``,
+		},
+		{
 			command: `info`,
 			shortKey: null,
 			value: `>[!INFO]\n>`,
