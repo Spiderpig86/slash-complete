@@ -20,11 +20,7 @@ export default class SlashCompletePlugin extends Plugin {
 	onunload() {}
 
 	async loadSettings() {
-		this.settings = Object.assign(
-			{},
-			DEFAULT_SETTINGS,
-			await this.mergeSettings()
-		);
+		this.settings = await this.mergeSettings();
 	}
 
 	async saveSettings() {
@@ -33,6 +29,9 @@ export default class SlashCompletePlugin extends Plugin {
 
 	async mergeSettings(): Promise<SlashCompleteSettings> {
 		const stored = await this.loadData();
+		if (!stored) {
+			return DEFAULT_SETTINGS;
+		}
 
 		// Merge commands into stored settings when new ones are added
 		const commands = Object.assign(
