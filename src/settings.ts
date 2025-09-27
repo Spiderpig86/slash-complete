@@ -1,4 +1,4 @@
-import { App, PluginSettingTab, Setting } from "obsidian";
+import { App, Notice, PluginSettingTab, Setting } from "obsidian";
 import SlashCompletePlugin from "../main";
 import { DEFAULT_SETTINGS } from "./constants";
 
@@ -16,10 +16,26 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 		containerEl.empty();
 
 		containerEl.createEl("h2", { text: `SlashComplete Settings` });
-		containerEl.createEl("p", {
-			text: `Settings for SlashComplete.`,
-		});
 
+		const callout = containerEl.createEl("p");
+
+		callout.appendText("Need help? Check out the ");
+		callout.appendChild(
+			createEl("a", {
+				text: "SlashComplete documentation",
+				href: "https://github.com/Spiderpig86/slash-complete",
+			})
+		);
+		callout.appendText(". You can support continued development by ");
+		callout.appendChild(
+			createEl("a", {
+				text: "buying me a coffee",
+				href: "https://github.com/sponsors/Spiderpig86",
+			})
+		);
+		callout.appendText(" ☕");
+
+		containerEl.createEl("h3", { text: `Basics` });
 		new Setting(containerEl)
 			.setName(`Hotkey`)
 			.setDesc(`Hotkey to trigger autocomplete for Markdown commands.`)
@@ -47,8 +63,6 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 					})
 			);
 
-		// TODO reset settings button
-
 		containerEl.createEl("h3", { text: `Markdown Constructs` });
 		for (let [_, c] of Object.entries(this.plugin.settings.commands)) {
 			new Setting(containerEl)
@@ -73,5 +87,22 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 						})
 				);
 		}
+
+		containerEl.createEl("h3", { text: `Danger!` });
+		new Setting(containerEl)
+			.setName(`Reset settings`)
+			.setDesc(`Resets SlashComplete to default state.`)
+			.addButton((cb) => {
+				cb.setButtonText(`Reset`)
+					.setWarning()
+					.onClick(async (event) => {
+						this.plugin.settings = {...DEFAULT_SETTINGS};
+						await this.plugin.saveSettings();
+						await this.plugin.loadSettings();
+						await this.display(); // Reload settings tab
+
+						new Notice(`SlashComplete settings successfully reset.`, /* ms */ 2500);
+					});
+			});
 	}
 }
