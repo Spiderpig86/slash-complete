@@ -1,7 +1,7 @@
 {
 	"id": "slash-complete",
 	"name": "SlashComplete",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Adds Notion-style slash command autocompletion to Obsidian, enabling fast and intuitive insertion of Markdown blocks, formatting, and commands directly from the editor.",
 	"author": "Spiderpig86",
