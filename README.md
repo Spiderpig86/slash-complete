@@ -1,6 +1,6 @@
 # SlashComplete
 
-SlashComplete brings Notion-style Markdown autocompletion to Obsidian, making it easy to insert blocks, commands, and formatting with a simple `/` command. Type `/` in your note and instantly access a palette of quick actions and formatting options, streamlining your note-taking workflow.
+SlashComplete brings Notion-style Markdown autocompletion to Obsidian, making it easy to insert blocks, commands, and formatting with a simple `/` command. Type `/` in your note and instantly access a palette of quick actions and formatting options, streamlining your note-taking workflow. SlashComplete is meant as a _replacement_ to the existing Notion slash commands plugin to solely focus on Markdown support.
 
 ## :sparkles: Features
 
