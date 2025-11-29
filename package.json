@@ -1,7 +1,7 @@
 {
 	"name": "slash-complete",
-	"version": "1.0.0",
-	"description": "Plugin for Markdown autocompletion for Obsidian.",
+	"version": "1.0.1",
+	"description": "Adds Notion-style slash command autocompletion to Obsidian, enabling fast and intuitive insertion of Markdown blocks, formatting, and commands directly from the editor. This is a direct replacement for Obsidian's default slash command plugin.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
