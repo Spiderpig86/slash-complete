@@ -15,8 +15,6 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: `SlashComplete Settings` });
-
 		const callout = containerEl.createEl("p");
 
 		callout.appendText("Need help? Check out the ");
@@ -35,7 +33,7 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 		);
 		callout.appendText(" ☕");
 
-		containerEl.createEl("h3", { text: `Basics` });
+		new Setting(containerEl).setName(`Basics`).setHeading();
 		new Setting(containerEl)
 			.setName(`Hotkey`)
 			.setDesc(`Hotkey to trigger autocomplete for Markdown commands.`)
@@ -63,11 +61,12 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 					})
 			);
 
-		containerEl.createEl("h3", { text: `Markdown Constructs` });
+		new Setting(containerEl).setName(`Markdown Constructs`).setHeading();
 		for (let [_, c] of Object.entries(this.plugin.settings.commands)) {
 			new Setting(containerEl)
 				.setName(c.command)
 				.setDesc(`Set the autocomplete settings for ${c.command}.`)
+				.setClass(`shortcut-container`)
 				.addText((text) =>
 					text
 						.setPlaceholder("Enter (optional) alias")
@@ -88,7 +87,7 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 				);
 		}
 
-		containerEl.createEl("h3", { text: `Danger!` });
+		new Setting(containerEl).setName(`Danger!`).setHeading();
 		new Setting(containerEl)
 			.setName(`Reset settings`)
 			.setDesc(`Resets SlashComplete to default state.`)

@@ -1,8 +1,21 @@
-/*
+@media screen and (max-width: 64rem) {
+	.shortcut-container {
+		flex-direction: column;
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+		.setting-item-info {
+			margin-inline-end: 0;
+			align-self: flex-start;
+		}
 
-If your plugin does not need CSS, delete this file.
+		.setting-item-control {
+			align-items: flex-end;
+			flex-direction: column;
+			width: 100%;
 
-*/
+			input,
+			textarea {
+				width: 100%;
+			}
+		}
+	}
+}
