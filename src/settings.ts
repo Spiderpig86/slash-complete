@@ -61,7 +61,7 @@ export class SlashCompleteSettingsTab extends PluginSettingTab {
 					})
 			);
 
-		new Setting(containerEl).setName(`Markdown Constructs`).setHeading();
+		new Setting(containerEl).setName(`Markdown constructs`).setHeading();
 		for (let [_, c] of Object.entries(this.plugin.settings.commands)) {
 			new Setting(containerEl)
 				.setName(c.command)
