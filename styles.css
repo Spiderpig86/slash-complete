@@ -1,3 +1,90 @@
+/* Slash menu (EditorSuggest popover) */
+.suggestion-container.slash-complete-menu,
+.suggestion-container:has(.slash-complete-item) {
+	border-radius: var(--radius-m);
+	overflow: hidden;
+	padding: var(--size-2-1);
+	min-width: 16rem;
+	max-height: min(22rem, 50vh);
+	box-shadow: var(--shadow-s);
+	display: flex;
+	flex-direction: column;
+}
+
+.suggestion-container.slash-complete-menu > .suggestion,
+.suggestion-container:has(.slash-complete-item) > .suggestion {
+	padding: 0;
+	overflow-y: auto;
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.suggestion-container.slash-complete-menu .suggestion-item,
+.suggestion-container:has(.slash-complete-item) .suggestion-item {
+	padding: 0;
+	margin: 0;
+	border-radius: var(--radius-s);
+}
+
+.suggestion-container.slash-complete-menu .suggestion-item.is-selected,
+.suggestion-container.slash-complete-menu .suggestion-item:hover,
+.suggestion-container:has(.slash-complete-item) .suggestion-item.is-selected,
+.suggestion-container:has(.slash-complete-item) .suggestion-item:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+.slash-complete-footer {
+	flex-shrink: 0;
+	border-top: 1px solid var(--background-modifier-border);
+	cursor: var(--cursor-default);
+}
+
+.slash-complete-footer:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+.slash-complete-row {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+	padding: var(--size-4-2) var(--size-4-3);
+	width: 100%;
+}
+
+.slash-complete-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--text-muted);
+}
+
+.slash-complete-icon svg {
+	width: 1.125rem;
+	height: 1.125rem;
+	stroke-width: 2;
+}
+
+.slash-complete-label {
+	flex: 1;
+	min-width: 0;
+	font-size: var(--font-ui-small);
+	color: var(--text-normal);
+}
+
+.slash-complete-hint {
+	flex-shrink: 0;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	font-family: var(--font-monospace);
+}
+
+.slash-complete-close-row .slash-complete-label {
+	color: var(--text-normal);
+}
+
 @media screen and (max-width: 64rem) {
 	.shortcut-container {
 		flex-direction: column;
