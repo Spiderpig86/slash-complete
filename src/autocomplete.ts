@@ -5,10 +5,15 @@ import {
 	EditorSuggest,
 	EditorSuggestContext,
 	EditorSuggestTriggerInfo,
+	setIcon,
 	TFile,
 } from "obsidian";
 import { Command } from "./models/command";
 import SlashCompletePlugin from "../main";
+import { ensureCloseMenuFooter } from "./close_menu";
+import { getCommandDisplayLabel } from "./command_label";
+import { getCommandIcon } from "./icon_map";
+import { getSuggestionShortcutHint } from "./suggestion_shortcut";
 
 const NO_COMMAND = -1;
 
@@ -62,7 +67,7 @@ export class AutoComplete extends EditorSuggest<Command> {
 	getSuggestions(
 		context: EditorSuggestContext
 	): Command[] | Promise<Command[]> {
-		return Object.entries(this.slashComplete.settings.commands)
+		const commands = Object.entries(this.slashComplete.settings.commands)
 			.filter(
 				(entry) =>
 					entry[1].command.includes(context.query) ||
@@ -70,11 +75,35 @@ export class AutoComplete extends EditorSuggest<Command> {
 						entry[1].alias.includes(context.query))
 			)
 			.map((entry) => entry[1]);
+
+		return commands;
 	}
 	renderSuggestion(value: Command, el: HTMLElement): void {
-		const div = document.createElement(`div`);
-		div.textContent = value.command;
-		el.appendChild(div);
+		el.empty();
+		el.addClass("slash-complete-item");
+
+		const row = el.createDiv({ cls: "slash-complete-row" });
+
+		const iconEl = row.createDiv({ cls: "slash-complete-icon" });
+		const iconName = getCommandIcon(value.command);
+		if (iconName) {
+			setIcon(iconEl, iconName);
+		}
+
+		row.createDiv({
+			cls: "slash-complete-label",
+			text: getCommandDisplayLabel(value.command),
+		});
+
+		const hint = getSuggestionShortcutHint(value);
+		if (hint) {
+			row.createDiv({ cls: "slash-complete-hint", text: hint });
+		}
+
+		ensureCloseMenuFooter(() => {
+			this.commandStartIndex = NO_COMMAND;
+			this.close();
+		});
 	}
 	selectSuggestion(value: Command, evt: MouseEvent | KeyboardEvent): void {
 		if (NO_COMMAND == this.commandStartIndex) {
