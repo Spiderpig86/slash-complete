@@ -13,7 +13,7 @@ SlashComplete brings Notion-style Markdown autocompletion to Obsidian, making it
 ## 📦 Install
 
 ### Obsidian Plugins
-Link TBA
+https://community.obsidian.md/plugins/slash-complete
 
 ### From the Repository
 1. Download or clone this repository.
